@@ -19,6 +19,7 @@
 .thumb {
 	text-align: center;
 	border-radius: 10px;
+	transition: all ease 1s;
 }
 
 #header {

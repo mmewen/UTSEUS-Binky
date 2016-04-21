@@ -11,7 +11,7 @@ import json
 t= grove_i2c_temp_hum_mini.th02()
 h= hp206c.hp206c()
 # grovepi.dust_sensor_en()
-air_sensor = 0
+air_sensor = 1
 grovepi.pinMode(air_sensor,"INPUT")
 
 ret=h.isAvailable()
