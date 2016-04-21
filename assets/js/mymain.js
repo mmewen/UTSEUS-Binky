@@ -36,6 +36,12 @@ var binky = (function($) { var _ = {
 
 						if (key == "humidity") { ext = "%" }
 						else if  (key == "temperature") { ext = "°C" }
+
+						if (data[key] - Math.trunc(data[key]) > 1e-10){
+							// It's not an int, cut it
+							data[key] = Math.round(data[key]*10)/10;
+						}
+						
 						$("#text_" + key).text(data[key] + ext);
 				}
 
