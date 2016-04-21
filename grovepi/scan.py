@@ -5,13 +5,14 @@ import grovepi  # used by air sensor and dust sensor
 import atexit # used for the dust sensor
 import json
 
+# atexit.register(grovepi.dust_sensor_dis)
+
 # Initialize the sensors
 t= grove_i2c_temp_hum_mini.th02()
 h= hp206c.hp206c()
-grovepi.dust_sensor_en()
+# grovepi.dust_sensor_en()
 air_sensor = 0
 grovepi.pinMode(air_sensor,"INPUT")
-atexit.register(grovepi.dust_sensor_dis)
 
 ret=h.isAvailable()
 if h.OK_HP20X_DEV == ret:
@@ -61,6 +62,6 @@ while True:
 	}
 
 	print json.dumps(data)
-  #   with open('./json/hsk1.json', 'wb') as f:
-		# f.write(json.dumps(voc))
+	with open('../data.json', 'w') as f:
+		f.write(json.dumps(data))
 	time.sleep(.5)
