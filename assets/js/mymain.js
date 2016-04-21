@@ -28,16 +28,21 @@ var binky = (function($) { var _ = {
 			},
 
 			getData: function() { /* this.dataUrl, */ 
-			    // console.log("Getting : " + this.dataUrl);
+			    // console.log("Getting : " + this.dataUrl.replace("#", ""));
 			    var xmlHttp = new XMLHttpRequest();
 			    xmlHttp.onreadystatechange = function() { 
 			        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
 			        	// console.log(xmlHttp.responseText);
-			        	var json = JSON.parse(xmlHttp.responseText);
-			            this.updateView(json);
+			        	try {
+						var json = JSON.parse(xmlHttp.responseText);
+				            	this.updateView(json);
+					} catch (e)
+					{
+						console.log(xmlHttp.responseText);
+					}
 			        }
 			    }.bind(this);
-			    xmlHttp.open("GET", this.dataUrl, true); // true for asynchronous 
+			    xmlHttp.open("GET", this.dataUrl.replace("#", ""), true); // true for asynchronous 
 			    xmlHttp.send(null);
 			},
 
