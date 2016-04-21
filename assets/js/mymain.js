@@ -15,10 +15,14 @@ var binky = (function($) { var _ = {
 				this.getData(this.updateView);
 
 				document.querySelector("#stop").addEventListener('click', function(){
+					console.log("Asking the raspi to stop");
+
 					$.get('stopRaspi.php');
 				});
 
 				document.querySelector("#start").addEventListener('click', function(){
+					console.log("Asking the raspi to start the Python scan");
+
 					$.get('startPython.php');
 				});
 			},

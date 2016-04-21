@@ -47,10 +47,8 @@ while True:
 			print ("Low pollution")
 		else:
 			print ("Air fresh")
-
-		print ("air_quality =", air_quality)
 	except IOError:
-		print ("Error")
+		print ("Error on air quality")
 
 	# Send result
 	data = {
