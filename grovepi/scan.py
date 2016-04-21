@@ -8,10 +8,10 @@ import json
 # atexit.register(grovepi.dust_sensor_dis)
 
 # Initialize the sensors
-t= grove_i2c_temp_hum_mini.th02()
+# t= grove_i2c_temp_hum_mini.th02()
 h= hp206c.hp206c()
 # grovepi.dust_sensor_en()
-air_sensor = 1
+air_sensor = 0
 grovepi.pinMode(air_sensor,"INPUT")
 
 ret=h.isAvailable()
@@ -23,10 +23,10 @@ else:
 
 while True:
 	temp = h.ReadTemperature()
-	temp2 = t.getTemperature()
+	# temp2 = t.getTemperature()
 	pressure = h.ReadPressure()
 	altitude = h.ReadAltitude()
-	humidity = t.getHumidity()
+	# humidity = t.getHumidity()
 	air_quality = "--"
 
   #   try:
@@ -55,13 +55,12 @@ while True:
 	# Send result
 	data = {
 		"air_quality": air_quality,
-		"humidity": humidity,
-		"temperature": (temp + temp2) / 2,
+		"temperature": temp,
 		"pressure": pressure,
 		"altitude": altitude
 	}
 
 	print json.dumps(data)
-	with open('../data.json', 'w') as f:
+	with open('/home/pi/Desktop/Binky/UTSEUS-Binky/data.json', 'w') as f:
 		f.write(json.dumps(data))
 	time.sleep(.5)

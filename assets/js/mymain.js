@@ -38,6 +38,8 @@ var binky = (function($) { var _ = {
 			},
 
 			updateView: function(data) {
+				console.log("Update");
+
 				for (var key in data) {
 					if (data.hasOwnProperty(key)){
 
