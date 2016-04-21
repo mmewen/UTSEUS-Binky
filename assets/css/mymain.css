@@ -1,0 +1,51 @@
+.index {
+	font-size: 200%;
+	font-weight: lighter;
+	color: white;
+	padding-top: 15%;
+}
+
+.advice {
+	font-size: 110%;
+	font-weight: lighter;
+	color: white;
+	padding-top: 5%;
+}
+
+.alone {
+	padding-top: 15%;
+}
+
+.thumb {
+	text-align: center;
+	border-radius: 10px;
+}
+
+/* ======== COLORS ========= */
+body {
+	background-color: white;
+}
+
+#air_quality {
+	background: #de8443
+}
+
+#advice {
+	background: #af8fb9
+}
+
+#temperature {
+	background: #d64760
+}
+
+#humidity {
+	background: #9367c9
+}
+
+#dust_index {
+	background: #de8443
+}
+
+#air_quality_map {
+	background: #8B59B8
+}
