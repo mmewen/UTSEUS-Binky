@@ -15,17 +15,16 @@ var binky = (function($) { var _ = {
 				this.getData(this.updateView);
 			},
 
-			getData: function(callback) { /* this.dataUrl, */ 
+			getData: function() { /* this.dataUrl, */ 
 			    // console.log("Getting : " + this.dataUrl);
 			    var xmlHttp = new XMLHttpRequest();
 			    xmlHttp.onreadystatechange = function() { 
 			        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
 			        	// console.log(xmlHttp.responseText);
 			        	var json = JSON.parse(xmlHttp.responseText);
-			        	// console.log(json);
-			            callback(json);
+			            this.updateView(json);
 			        }
-			    }
+			    }.bind(this);
 			    xmlHttp.open("GET", this.dataUrl, true); // true for asynchronous 
 			    xmlHttp.send(null);
 			},
@@ -39,6 +38,10 @@ var binky = (function($) { var _ = {
 						else if  (key == "temperature") { ext = "°C" }
 						$("#text_" + key).text(data[key] + ext);
 				}
+
+				setTimeout(function (){
+					this.getData();
+				}.bind(this), 1000);
 			}
 
 }; return _; })(jQuery);
