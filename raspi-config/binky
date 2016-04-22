@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case "$1" in
+	start)
+		echo "Starting python"
+		/home/pi/Desktop/Binky/UTSEUS-Binky/grovepi/scan.py &
+		;;
+	stop)
+		kill $(ps aux | grep -m 1 'python /home/pi/Desktop/Binky/UTSEUS-Binky/grovepi/scan.py' | awk '{ print $2 }')
+		;;
+	*)
+		echo "Usage: service binky start|stop"
+		exit 1
+		;;
+esac
+exit 0

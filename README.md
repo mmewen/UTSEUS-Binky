@@ -17,7 +17,7 @@ You'll need :
 ... only we know ♫
 
 ### Create a link to the directory
-* Type `sudo ln -s /path/to/this/repo/ /var/www/binky
+* Type `sudo ln -s /path/to/this/repo/ /var/www/binky`
 * Enjoy a static page at localhost/binky :)
 
 ### Start the Python script at Raspi boot
